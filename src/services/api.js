@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://temporary-api-url.com/api",
+  baseURL: "https://sith-attendance-management-system-backend.onrender.com/api",
 });
 
 // 🔥 TOKEN AUTO ATTACH
