@@ -232,7 +232,7 @@ export default function Dashboard() {
           minHeight: "400px",
           overflow: "visible"
         }}>
-          <ResponsiveContainer width="100%" height={420}>
+          <ResponsiveContainer width="100%" height={500}>
           <BarChart
             data={data.batchStats || []}
             barCategoryGap="20%"
