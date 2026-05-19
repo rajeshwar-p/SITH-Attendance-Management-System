@@ -228,8 +228,8 @@ export default function Dashboard() {
 
         <div style={{
           width: "100%",
-          height: "350px",
-          minHeight: "300px",
+          height: "400px",
+          minHeight: "400px",
           overflow: "visible"
         }}>
           <ResponsiveContainer width="100%" height={300}>
