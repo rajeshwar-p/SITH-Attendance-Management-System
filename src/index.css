@@ -4487,6 +4487,18 @@ td {
 /* ===== LARGE TABLET / SMALL LAPTOP ===== */
 @media screen and (max-width: 1024px) {
 
+  * {
+  box-sizing: border-box;
+}
+
+img,
+svg,
+canvas,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
   .main {
     padding: 20px;
   }
