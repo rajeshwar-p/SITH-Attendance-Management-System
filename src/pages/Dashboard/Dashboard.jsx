@@ -235,10 +235,12 @@ export default function Dashboard() {
           <ResponsiveContainer width="100%" height={350}>
           <BarChart
             data={data.batchStats || []}
+            barCategoryGap="20%"
+            barGap={10}
             margin={{
               top: 20,
-              right: 20,
-              left: 20,
+              right: 30,
+              left: 10,
               bottom: 90
             }}
           >
