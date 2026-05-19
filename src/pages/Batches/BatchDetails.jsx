@@ -60,6 +60,7 @@ export default function BatchDetails() {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     loadData();
     loadAttendance();
   }, [id]);

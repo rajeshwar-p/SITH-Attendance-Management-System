@@ -38,19 +38,22 @@ export default function Dashboard() {
   const user = JSON.parse(localStorage.getItem("user"));
 
   const getWhatsappMessage = (name) => {
-    return `✨*Happy Birthday ${name}!*✨
-  🎉🎂🎁🎈🥳🎊
-  On Your Special Day May God Bless You with lots of
-  Happiness 😊,
-  Joy 😂,
-  Peace ✌🏻,
-  Success 🏆💯 and
-  💪 Good Health 👍...
-  Wish you a great year ahead 👍🏻😊
+    return `✨ *Happy Birthday, ${name}!* ✨
+🎉🎂🎁🎈🥳🎊
 
-  Warm Regards,
-  *SITH*
-  *(Suhradam Information Technology Hub).*`;
+On your special day, may God bless you with:
+
+😊 *Happiness*
+😂 *Joy**
+✌🏻 *Peace*
+🏆💯 *Success*
+💪👍 *Good Health*
+
+May this new year of your life bring endless opportunities, beautiful memories, and great achievements. Wishing you a wonderful year ahead filled with positivity, growth, and success. 👍🏻😊
+
+*Warm Regards,*
+*SITH*
+*(Suhradam Information Technology Hub)*`;
   };
 
   const formatMessageForWhatsApp = (msg) => {
