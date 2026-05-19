@@ -44,7 +44,7 @@ export default function Dashboard() {
 On your special day, may God bless you with:
 
 😊 *Happiness*
-😂 *Joy**
+😂 *Joy*
 ✌🏻 *Peace*
 🏆💯 *Success*
 💪👍 *Good Health*
