@@ -245,7 +245,7 @@ export default function Dashboard() {
               <XAxis
                 dataKey="batch_name"
                 interval={0}
-                angle={-35}
+                angle={-20}
                 textAnchor="end"
                 height={100}
                 tick={{ fontSize: 12 }}
