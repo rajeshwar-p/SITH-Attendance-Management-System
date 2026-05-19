@@ -258,7 +258,6 @@ export default function Dashboard() {
                 dataKey="total"
                 fill="#6366f1"
                 radius={[10, 10, 0, 0]}
-                barSize={120}
               />
             </BarChart>
           </ResponsiveContainer>
