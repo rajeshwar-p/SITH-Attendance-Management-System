@@ -232,15 +232,23 @@ export default function Dashboard() {
           minHeight: "400px",
           overflow: "visible"
         }}>
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={data.batchStats || []}>
-              <XAxis 
+          <ResponsiveContainer width="100%" height={350}>
+          <BarChart
+            data={data.batchStats || []}
+            margin={{
+              top: 20,
+              right: 20,
+              left: 20,
+              bottom: 90
+            }}
+          >
+              <XAxis
                 dataKey="batch_name"
                 interval={0}
-                angle={-20}
+                angle={-35}
                 textAnchor="end"
-                height={60}
-                tick={{ fontSize: 15 }}
+                height={100}
+                tick={{ fontSize: 12 }}
               />
               <YAxis />
               <Tooltip />
