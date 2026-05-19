@@ -865,7 +865,7 @@ tbody tr:hover {
 }
 
 /* ===== RESPONSIVE ===== */
-@media(max-width: 900px){
+@media(max-width: 396px){
   .students-grid {
     grid-template-columns: 1fr;
   }
@@ -1342,7 +1342,7 @@ tbody tr:hover {
 }
 
 /* RESPONSIVE */
-@media(max-width:1100px){
+@media(max-width:396px){
 
   .login-left{
     display:none;
@@ -1360,7 +1360,7 @@ tbody tr:hover {
 
 }
 
-@media(max-width:600px){
+@media(max-width:396px){
 
   html,
   body,
@@ -2027,7 +2027,7 @@ END OF LOGIN PAGE MODERN UI
 }
 
 /* RESPONSIVE */
-@media(max-width:950px){
+@media(max-width:396px){
 
   .create-user-modal{
     width:95%;
@@ -3266,7 +3266,7 @@ input, select, .student-row {
   border: 1px solid #e5e7eb;
 }
 
-@media(max-width: 768px){
+@media(max-width: 396px){
   .profile-container {
     grid-template-columns: 1fr;  /* 🔥 stack on mobile */
   }
@@ -3513,7 +3513,7 @@ td {
    MOBILE RESPONSIVE FIX ONLY
 ========================================= */
 
-@media (max-width: 768px){
+@media (max-width: 396px){
 
   .students-header{
     display:flex;
@@ -3557,7 +3557,7 @@ td {
   }
 }
 
-@media (max-width: 768px){
+@media (max-width: 396px){
 
   /* ACTION COLUMN */
   .action-buttons{
@@ -3598,7 +3598,7 @@ td {
   }
 }
 
-@media (max-width:768px){
+@media (max-width:396px){
 
   /* STUDENT PROFILE POPUP */
   .modal-view2{
@@ -3742,7 +3742,7 @@ td {
 
 }
 
-@media (max-width:768px){
+@media (max-width:396px){
 
   .modal-view{
 
@@ -3810,7 +3810,7 @@ td {
   }
 }
 
-@media (max-width:768px){
+@media (max-width:396px){
 
   .attendance-wrapper{
     display:flex !important;
@@ -3866,7 +3866,7 @@ td {
   }
 }
 
-@media (max-width:768px){
+@media (max-width:396px){
 
   .attendance-left{
     display:grid !important;
@@ -3921,7 +3921,7 @@ td {
   }
 }
 
-@media (max-width:768px){
+@media (max-width:396px){
 
   /* MODAL */
   .create-user-modal{
@@ -3999,7 +3999,7 @@ td {
   }
 }
 
-@media (max-width:768px){
+@media (max-width:396px){
 
   /* BUTTON ROW */
   .create-user-modal .btn-row{
@@ -4460,7 +4460,7 @@ td {
 
 /* MOBILE */
 
-@media(max-width:600px){
+@media(max-width:396px){
 
   .common-popup-box{
     padding: 25px 18px;
