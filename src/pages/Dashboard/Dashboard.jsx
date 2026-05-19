@@ -232,7 +232,7 @@ export default function Dashboard() {
           minHeight: "400px",
           overflow: "visible"
         }}>
-          <ResponsiveContainer width="100%" height={350}>
+          <ResponsiveContainer width="100%" height={420}>
           <BarChart
             data={data.batchStats || []}
             barCategoryGap="20%"
@@ -254,7 +254,12 @@ export default function Dashboard() {
               />
               <YAxis />
               <Tooltip />
-              <Bar dataKey="total" fill="#6366f1" radius={[10,10,0,0]} />
+              <Bar
+                dataKey="total"
+                fill="#6366f1"
+                radius={[10, 10, 0, 0]}
+                barSize={120}
+              />
             </BarChart>
           </ResponsiveContainer>
         </div>
