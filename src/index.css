@@ -865,7 +865,7 @@ tbody tr:hover {
 }
 
 /* ===== RESPONSIVE ===== */
-@media(max-width: 396px){
+@media(max-width: 900px){
   .students-grid {
     grid-template-columns: 1fr;
   }
@@ -1342,7 +1342,7 @@ tbody tr:hover {
 }
 
 /* RESPONSIVE */
-@media(max-width:396px){
+@media(max-width:1100px){
 
   .login-left{
     display:none;
@@ -1360,7 +1360,7 @@ tbody tr:hover {
 
 }
 
-@media(max-width:396px){
+@media(max-width:600px){
 
   html,
   body,
@@ -2027,7 +2027,7 @@ END OF LOGIN PAGE MODERN UI
 }
 
 /* RESPONSIVE */
-@media(max-width:396px){
+@media(max-width:950px){
 
   .create-user-modal{
     width:95%;
@@ -3266,7 +3266,7 @@ input, select, .student-row {
   border: 1px solid #e5e7eb;
 }
 
-@media(max-width: 396px){
+@media(max-width: 768px){
   .profile-container {
     grid-template-columns: 1fr;  /* 🔥 stack on mobile */
   }
@@ -3513,7 +3513,7 @@ td {
    MOBILE RESPONSIVE FIX ONLY
 ========================================= */
 
-@media (max-width: 396px){
+@media (max-width: 768px){
 
   .students-header{
     display:flex;
@@ -3557,7 +3557,7 @@ td {
   }
 }
 
-@media (max-width: 396px){
+@media (max-width: 768px){
 
   /* ACTION COLUMN */
   .action-buttons{
@@ -3598,7 +3598,7 @@ td {
   }
 }
 
-@media (max-width:396px){
+@media (max-width:768px){
 
   /* STUDENT PROFILE POPUP */
   .modal-view2{
@@ -3742,7 +3742,7 @@ td {
 
 }
 
-@media (max-width:396px){
+@media (max-width:768px){
 
   .modal-view{
 
@@ -3810,7 +3810,7 @@ td {
   }
 }
 
-@media (max-width:396px){
+@media (max-width:768px){
 
   .attendance-wrapper{
     display:flex !important;
@@ -3866,7 +3866,7 @@ td {
   }
 }
 
-@media (max-width:396px){
+@media (max-width:768px){
 
   .attendance-left{
     display:grid !important;
@@ -3921,7 +3921,7 @@ td {
   }
 }
 
-@media (max-width:396px){
+@media (max-width:768px){
 
   /* MODAL */
   .create-user-modal{
@@ -3999,7 +3999,7 @@ td {
   }
 }
 
-@media (max-width:396px){
+@media (max-width:768px){
 
   /* BUTTON ROW */
   .create-user-modal .btn-row{
@@ -4460,7 +4460,7 @@ td {
 
 /* MOBILE */
 
-@media(max-width:396px){
+@media(max-width:600px){
 
   .common-popup-box{
     padding: 25px 18px;
@@ -4476,5 +4476,340 @@ td {
 
   .popup-btn{
     width: 100%;
+  }
+}
+
+/* =========================================
+   GLOBAL RESPONSIVE FIX (SAFE)
+   Add at END of index.css
+========================================= */
+
+/* ===== LARGE TABLET / SMALL LAPTOP ===== */
+@media screen and (max-width: 1024px) {
+
+  .main {
+    padding: 20px;
+  }
+
+  /* Dashboard / cards */
+  .card,
+  .birthday-card,
+  .card-ui {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .students-grid,
+  .batch-layout,
+  .attendance-wrapper,
+  .profile-container2 {
+    grid-template-columns: 1fr;
+  }
+
+  .create-box,
+  .list-box,
+  .profile-left,
+  .profile-right {
+    width: 100%;
+  }
+
+  .search-input {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .header-actions {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .table-scroll,
+  .table-scroll2,
+  .table-scroll3 {
+    overflow-x: auto;
+    width: 100%;
+  }
+
+  table {
+    min-width: 700px;
+  }
+}
+
+/* ===== TABLET ===== */
+@media screen and (max-width: 768px) {
+
+  .navbar {
+    padding: 0 15px;
+    height: 65px;
+  }
+
+  .main {
+    padding: 15px;
+    margin-top: 65px;
+  }
+
+  .sidebar {
+    width: 250px;
+  }
+
+  .students-container,
+  .profile-container,
+  .view-row,
+  .view-row2 {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .students-header,
+  .attendance-header-row,
+  .header-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .right-btn {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-small,
+  .btn-reset,
+  .pdf-btn,
+  .btn-profile {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .modal-view,
+  .modal-view2,
+  .modal-view3,
+  .student-modal,
+  .crop-container,
+  .create-user-modal {
+    width: 95%;
+    max-width: 95%;
+    padding: 18px;
+  }
+
+  .profile-right {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-right .full-width,
+  .profile-right .input-group:last-child {
+    grid-column: auto;
+  }
+
+  .search-input,
+  .small-search {
+    width: 100%;
+  }
+
+  .header-title {
+    font-size: 20px;
+  }
+
+  .header-subtitle {
+    font-size: 13px;
+  }
+
+  .card h1 {
+    font-size: 28px;
+  }
+
+  .student-row,
+  .table-head {
+    grid-template-columns: 60px 1fr 160px;
+  }
+
+  .status-bar {
+    width: 160px;
+  }
+
+  .reason-dropdown {
+    width: 100%;
+    max-width: 180px;
+  }
+}
+
+/* ===== MOBILE ===== */
+@media screen and (max-width: 480px) {
+
+  html,
+  body,
+  #root {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  .navbar {
+    padding: 0 12px;
+    height: 60px;
+  }
+
+  .main {
+    margin-top: 60px;
+    padding: 12px;
+  }
+
+  .sidebar {
+    width: 240px;
+  }
+
+  .card,
+  .birthday-card,
+  .card-ui,
+  .section {
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  .students-grid,
+  .batch-layout,
+  .attendance-wrapper,
+  .profile-container2,
+  .create-user-modal .profile-container {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-left {
+    text-align: center;
+  }
+
+  .image-wrapper,
+  .profile-left img {
+    width: 130px;
+    height: 130px;
+    margin: auto;
+  }
+
+  .header-title {
+    font-size: 17px;
+    line-height: 1.3;
+  }
+
+  .header-subtitle {
+    font-size: 12px;
+  }
+
+  .header-icon-box {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+  }
+
+  .header-icon-box svg {
+    font-size: 18px;
+  }
+
+  .search-input,
+  .small-search,
+  input,
+  select,
+  textarea,
+  .btn,
+  .btn-primary,
+  .btn-danger,
+  .upload-btn {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .students-header h2,
+  .form-title,
+  .table-title {
+    font-size: 18px;
+  }
+
+  .card h1 {
+    font-size: 24px;
+  }
+
+  .student-row,
+  .table-head {
+    grid-template-columns: 45px 1fr 120px;
+    gap: 8px;
+    font-size: 12px;
+  }
+
+  .status-bar {
+    width: 120px;
+    height: 34px;
+  }
+
+  .status-option {
+    font-size: 10px;
+  }
+
+  .toggle {
+    width: 90px;
+    height: 32px;
+  }
+
+  .toggle .circle {
+    width: 24px;
+    height: 24px;
+  }
+
+  .toggle.Present .circle {
+    left: 62px;
+  }
+
+  .reason-dropdown {
+    position: relative;
+    right: 0;
+    max-width: 100%;
+    margin-top: 10px;
+  }
+
+  .modal,
+  .student-modal,
+  .crop-container,
+  .modal-view,
+  .modal-view2,
+  .modal-view3 {
+    width: 95%;
+    padding: 15px;
+  }
+
+  table {
+    min-width: 650px;
+  }
+
+  .table-scroll,
+  .table-scroll2,
+  .table-scroll3 {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ===== EXTRA SMALL DEVICES ===== */
+@media screen and (max-width: 360px) {
+
+  .main {
+    padding: 10px;
+  }
+
+  .header-title {
+    font-size: 15px;
+  }
+
+  .card h1 {
+    font-size: 20px;
+  }
+
+  .student-row,
+  .table-head {
+    grid-template-columns: 35px 1fr 100px;
+  }
+
+  .status-bar {
+    width: 100px;
+  }
+
+  .sidebar {
+    width: 220px;
   }
 }
