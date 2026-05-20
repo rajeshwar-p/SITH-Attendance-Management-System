@@ -763,6 +763,22 @@ export default function BatchDetails() {
       return true;
     });
   };
+
+  const getUniqueProfileAttendance = (attendance) => {
+    const seen = new Set();
+
+    return attendance.filter((a) => {
+      const date = new Date(a.date).toDateString();
+
+      // same day + same batch alag record rahe
+      const key = `${date}-${a.batch_name}`;
+
+      if (seen.has(key)) return false;
+
+      seen.add(key);
+      return true;
+    });
+  };
   
   const exportStudentProfilePDF = () => {
     const printWindow = window.open("", "_blank");
@@ -926,7 +942,7 @@ export default function BatchDetails() {
         </thead>
         <tbody>
           ${Object.values(
-            getUniqueAttendance(profileData?.attendance || []).reduce((acc, a) => {
+            getUniqueProfileAttendance(profileData?.attendance || []).reduce((acc, a) => {
               if (!acc[a.batch_name]) {
                 acc[a.batch_name] = {
                   batch: a.batch_name,
@@ -965,7 +981,9 @@ export default function BatchDetails() {
           </tr>
         </thead>
         <tbody>
-          ${getUniqueAttendance(profileData?.attendance || []).map(a => `
+          ${getUniqueProfileAttendance(profileData?.attendance || [])
+          .sort((a, b) => new Date(b.date) - new Date(a.date))
+          .map(a => `
             <tr>
               <td>${formatDateTime(a.date)}</td>
               <td>${a.batch_name}</td>
@@ -1497,7 +1515,7 @@ export default function BatchDetails() {
 
                           <tbody>
                             {Object.values(
-                              getUniqueAttendance(profileData?.attendance || []).reduce((acc, a) => {
+                              getUniqueProfileAttendance(profileData?.attendance || []).reduce((acc, a) => {
                                 if (!acc[a.batch_name]) {
                                   acc[a.batch_name] = {
                                     batch: a.batch_name,
@@ -1561,7 +1579,8 @@ export default function BatchDetails() {
                         </thead>
 
                         <tbody>
-                          {getUniqueAttendance(profileData?.attendance || [])
+                          {getUniqueProfileAttendance(profileData?.attendance || [])
+                            .sort((a, b) => new Date(b.date) - new Date(a.date))
                             .filter(a => {
                               const val = profileSearch.toLowerCase().trim();
 
