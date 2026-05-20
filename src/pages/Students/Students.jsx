@@ -454,7 +454,10 @@ const filteredStudents = students.filter((s) => {
       s.mobile?.includes(value) ||
       (s.birth_date && formatDate(s.birth_date).toLowerCase().includes(value))
     );
-  });
+  })
+  .sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
 
 const handleFocus = (e) => {
   const { name } = e.target;
@@ -1047,7 +1050,12 @@ const exportStudentProfilePDF = () => {
 
                         <tbody>
                           {Object.values(
-                            getUniqueAttendance(profileData.attendance).reduce((acc, a) => {
+                            getUniqueAttendance(profileData.attendance)
+                            .sort(
+                              (a, b) =>
+                                new Date(b.date) - new Date(a.date)
+                            )
+                            .reduce((acc, a) => {
                               if (!acc[a.batch_name]) {
                                 acc[a.batch_name] = {
                                   batch: a.batch_name,
@@ -1112,6 +1120,10 @@ const exportStudentProfilePDF = () => {
 
                       <tbody>
                         {getUniqueAttendance(profileData.attendance)
+                          .sort(
+                            (a, b) =>
+                              new Date(b.date) - new Date(a.date)
+                          )
                           .filter(a => {
                             const val = profileSearch.toLowerCase().trim();
 
