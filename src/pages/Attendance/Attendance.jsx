@@ -286,7 +286,6 @@ export default function Attendance() {
           <select
             className={`batch-select ${errors.batch ? "error" : ""}`}
             value={selectedBatch}
-            className={errors.batch ? "error" : ""}
             onChange={(e)=>{
               handleBatchChange(e.target.value);
               setErrors(prev => ({...prev, batch: false}));
