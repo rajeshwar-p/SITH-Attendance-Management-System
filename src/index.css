@@ -4478,3 +4478,44 @@ td {
     width: 100%;
   }
 }
+
+/* FIX BATCH DROPDOWN */
+.batch-select {
+  width: 100%;
+  height: 42px;
+  max-width: 100%;
+  box-sizing: border-box;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  cursor: pointer;
+}
+
+/* option width fix */
+.batch-select option {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* parent overflow fix */
+.attendance-left {
+  overflow: visible !important;
+}
+
+.input-box {
+  position: relative;
+  overflow: hidden;
+}
+
+/* prevent horizontal expansion */
+.attendance-wrapper {
+  overflow-x: hidden;
+}

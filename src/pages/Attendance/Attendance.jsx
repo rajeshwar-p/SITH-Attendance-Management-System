@@ -284,6 +284,7 @@ export default function Attendance() {
         <div className="input-box">
           <label>Batch</label>
           <select
+            className={`batch-select ${errors.batch ? "error" : ""}`}
             value={selectedBatch}
             className={errors.batch ? "error" : ""}
             onChange={(e)=>{
