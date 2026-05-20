@@ -499,12 +499,15 @@ const getAttendanceStyle = (percentage) => {
 const getUniqueAttendance = (attendance) => {
   const seen = new Set();
 
-  return attendance.filter(a => {
-    const date = new Date(a.date).toDateString(); // same day normalize
+  return attendance.filter((a) => {
+    const date = new Date(a.date).toDateString();
 
-    if (seen.has(date)) return false;
+    // same batch + same date
+    const key = `${date}-${a.batch_name}`;
 
-    seen.add(date);
+    if (seen.has(key)) return false;
+
+    seen.add(key);
     return true;
   });
 };
