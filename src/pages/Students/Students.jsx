@@ -689,7 +689,9 @@ const exportStudentProfilePDF = () => {
             acc[a.batch_name].total++;
             return acc;
           }, {})
-        ).map(b => `
+        )
+        .sort((a, b) => a.batch.localeCompare(b.batch))
+        .map(b => `
           <tr>
             <td>${b.batch}</td>
             <td>${b.present} / ${b.total}</td>
@@ -713,7 +715,12 @@ const exportStudentProfilePDF = () => {
         </tr>
       </thead>
       <tbody>
-        ${getUniqueAttendance(profileData.attendance).map(a => `
+        ${getUniqueAttendance(profileData.attendance)
+        .sort(
+          (a, b) =>
+            new Date(b.date) - new Date(a.date)
+        )  
+        .map(a => `
           <tr>
             <td>${formatDateTime(a.date)}</td>
             <td>${a.batch_name}</td>
@@ -1054,10 +1061,6 @@ const exportStudentProfilePDF = () => {
                         <tbody>
                           {Object.values(
                             getUniqueAttendance(profileData.attendance)
-                            .sort(
-                              (a, b) =>
-                                new Date(b.date) - new Date(a.date)
-                            )
                             .reduce((acc, a) => {
                               if (!acc[a.batch_name]) {
                                 acc[a.batch_name] = {
@@ -1073,7 +1076,9 @@ const exportStudentProfilePDF = () => {
                               acc[a.batch_name].total++; 
                               return acc;
                             }, {})
-                          ).map((b, i) => (
+                          )
+                          .sort((a, b) => a.batch.localeCompare(b.batch))
+                          .map((b, i) => (
                             <tr key={i}>
                               <td>{b.batch}</td>
                               <td style={{ color: "#22c55e", fontWeight: "600" }}>
