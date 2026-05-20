@@ -183,10 +183,15 @@ export default function Attendance() {
         end_time: form.end_time,
         topic: form.topic,
 
-        records: Object.keys(records).map(id => ({
+        records: Object.keys(records)
+        .filter(id => records[id]?.status)
+        .map(id => ({
           student_id: Number(id),
           status: records[id].status,
-          reason: records[id].reason
+          reason:
+            records[id].status === "Present"
+              ? null
+              : records[id].reason || "Reason Not Required"
         }))
       };
 
