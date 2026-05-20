@@ -177,7 +177,7 @@ export default function Attendance() {
       }
 
       const payload = {
-        batch_id: selectedBatch,
+        batch_id: Number(selectedBatch),
         date: form.date,
         start_time: form.start_time,
         end_time: form.end_time,
