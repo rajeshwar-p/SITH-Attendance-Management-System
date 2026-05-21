@@ -502,7 +502,15 @@ export default function BatchDetails() {
         <h2>Students List</h2>
         <table>
           <tr><th>#</th><th>Name</th></tr>
-          ${data.students.map((s,i)=>`
+          ${[...data.students]
+          .sort((a, b) =>
+            a.name.localeCompare(
+              b.name,
+              undefined,
+              { sensitivity: "base" }
+            )
+          )
+          .map((s,i)=>`
             <tr>
               <td>${i+1}</td>
               <td>${s.name}</td>
@@ -511,7 +519,11 @@ export default function BatchDetails() {
         </table>
       </div>
 
-      ${sessions.map((session,i)=>`
+      ${[...sessions]
+      .sort((a, b) =>
+        new Date(a.date) - new Date(b.date)
+      )
+      .map((session,i)=>`
         <div class="card">
           <h2>Session ${i+1}</h2>
 
@@ -527,7 +539,15 @@ export default function BatchDetails() {
               <th>Reason</th>
             </tr>
 
-            ${session.students.map((s,j)=>`
+            ${[...session.students]
+            .sort((a, b) =>
+              a.name.localeCompare(
+                b.name,
+                undefined,
+                { sensitivity: "base" }
+              )
+            )
+            .map((s,j)=>`
               <tr>
                 <td>${j+1}</td>
                 <td>${s.name}</td>
@@ -700,7 +720,15 @@ export default function BatchDetails() {
         </thead>
 
         <tbody>
-          ${viewData.students.map((s, i) => `
+          ${[...viewData.students]
+          .sort((a, b) =>
+            a.name.localeCompare(
+              b.name,
+              undefined,
+              { sensitivity: "base" }
+            )
+          )
+          .map((s, i) => `
             <tr>
               <td>${i + 1}</td>
               <td>${s.name}</td>

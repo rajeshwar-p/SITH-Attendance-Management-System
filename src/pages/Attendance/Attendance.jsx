@@ -355,14 +355,18 @@ export default function Attendance() {
           <input
             value={form.topic}
             className={errors.topic ? "error" : ""}
-            onChange={(e)=>{
+            onChange={(e) => {
               const value = e.target.value;
 
-              const formatted = value.replace(/\b\w/g, c => c.toUpperCase());
+              setForm(prev => ({
+                ...prev,
+                topic: value
+              }));
 
-              setForm({...form, topic: formatted});
-
-              setErrors(prev => ({...prev, topic: false}));
+              setErrors(prev => ({
+                ...prev,
+                topic: false
+              }));
             }}
           />
         </div>

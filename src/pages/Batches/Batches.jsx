@@ -436,7 +436,18 @@ export default function Batches() {
 
       <h1 style="margin-bottom:20px; margin-top:0px;">Batch Management Report</h1>
 
-      ${data.map((b, index) => `
+      ${[...data]
+      .sort((a, b) =>
+        a.batch_name.localeCompare(
+          b.batch_name,
+          undefined,
+          {
+            numeric: true,
+            sensitivity: "base"
+          }
+        )
+      )
+      .map((b, index) => `
         <div class="batch-card">
 
           <div class="title">Batch ${index + 1}: ${b.batch_name}</div>
@@ -457,7 +468,15 @@ export default function Batches() {
               </tr>
             </thead>
             <tbody>
-              ${b.students.map((s, i) => `
+              ${[...b.students]
+              .sort((a, b) =>
+                a.name.localeCompare(
+                  b.name,
+                  undefined,
+                  { sensitivity: "base" }
+                )
+              )
+              .map((s, i) => `
                 <tr>
                   <td>${i + 1}</td>
                   <td>${s.name}</td>
@@ -478,7 +497,11 @@ export default function Batches() {
               </tr>
             </thead>
             <tbody>
-              ${b.sessions.map((s, i) => `
+              ${[...b.sessions]
+              .sort((a, b) =>
+                new Date(a.date) - new Date(b.date)
+              )
+              .map((s, i) => `
                 <tr>
                   <td>${i + 1}</td>
                   <td>${formatDateTime(s.date)}</td>
