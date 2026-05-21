@@ -89,10 +89,6 @@ export default function Students() {
   const handleEditChange = (e) => {
     let { name, value } = e.target;
 
-    if (name === "name") {
-      value = value.replace(/\b\w/g, c => c.toUpperCase());
-    }
-
     if (name === "mobile") {
       value = value.replace(/\D/g, "").slice(0, 10);
     }
@@ -208,11 +204,6 @@ const deleteStudentHandler = (id) => {
   // 🔥 NAME CAPITALIZE
 const handleChange = (e) => {
   let { name, value } = e.target;
-
-  // 🔥 Name Capitalize
-  if (name === "name") {
-    value = value.replace(/\b\w/g, c => c.toUpperCase());
-  }
 
   // 🔥 Mobile: Only numbers allow
   if (name === "mobile") {
