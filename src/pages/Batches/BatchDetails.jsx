@@ -214,8 +214,19 @@ export default function BatchDetails() {
     }
   };
 
-  const filteredStudents = allStudents.filter(s =>
+  const filteredStudents = [...allStudents]
+  .filter(s =>
     s.name.toLowerCase().includes(search.toLowerCase())
+  )
+  .sort((a, b) =>
+    a.name.localeCompare(
+      b.name,
+      undefined,
+      {
+        numeric: true,
+        sensitivity: "base"
+      }
+    )
   );
 
   const loadAttendance = async () => {
@@ -363,21 +374,27 @@ export default function BatchDetails() {
     loadAttendance();
   };
 
-  const filteredAttendance = attendanceList.filter(a => {
+  const filteredAttendance = attendanceList
+  .filter(a => {
     const value = search.toLowerCase();
 
-    const formatted = formatDate(a.date).toLowerCase();     // 03-May-2026
-    const raw = a.date?.toLowerCase();                      // 2026-05-03
-    const time = `${a.start_time} ${a.end_time}`.toLowerCase();
+    const formatted = formatDate(a.date).toLowerCase();
+    const raw = a.date?.toLowerCase();
+    const time =
+      `${a.start_time} ${a.end_time}`.toLowerCase();
     const topic = a.topic?.toLowerCase();
 
     return (
-      formatted.includes(value) ||   // 🔥 month search (May, Apr)
-      raw.includes(value) ||         // 🔥 full date search
-      time.includes(value) ||        // 🔥 time search
-      topic.includes(value)          // 🔥 topic search
+      formatted.includes(value) ||
+      raw.includes(value) ||
+      time.includes(value) ||
+      topic.includes(value)
     );
-  });
+  })
+  .sort(
+    (a, b) =>
+      new Date(b.date) - new Date(a.date)
+  );
 
   const generateBatchDetailsPDF = async () => {
 
@@ -957,7 +974,18 @@ export default function BatchDetails() {
               acc[a.batch_name].total++;
               return acc;
             }, {})
-          ).map(b => `
+          )
+          .sort((a, b) =>
+            a.batch.localeCompare(
+              b.batch,
+              undefined,
+              {
+                numeric: true,
+                sensitivity: "base"
+              }
+            )
+          )
+          .map(b => `
             <tr>
               <td>${b.batch}</td>
               <td>${b.present} / ${b.total}</td>
@@ -1104,7 +1132,15 @@ export default function BatchDetails() {
                   {students.length === 0 ? (
                     <p className="no-data">No students added</p>
                   ) : (
-                    students.map((s, index) => (
+                    [...students]
+                    .sort((a, b) =>
+                      a.name.localeCompare(
+                        b.name,
+                        undefined,
+                        { sensitivity: "base" }
+                      )
+                    )
+                    .map((s, index) => (
                       <div key={s.id} className="student-item-ui" onClick={() => openProfile(s.id)}>
 
                         <div className="student-avatar">
@@ -1284,7 +1320,15 @@ export default function BatchDetails() {
                                 <h4 style={{ marginBottom: "10px" }}>Edit Attendance</h4>
 
                                 <div className="table-scroll2">
-                                {students.map((s, index) => (
+                                {[...students]
+                                  .sort((a, b) =>
+                                    a.name.localeCompare(
+                                      b.name,
+                                      undefined,
+                                      { sensitivity: "base" }
+                                    )
+                                  )
+                                  .map((s, index) => (
                                   <div key={s.id} className="student-row">
 
                                     <span>{index + 1}</span>
@@ -1530,7 +1574,18 @@ export default function BatchDetails() {
                                 acc[a.batch_name].total++; 
                                 return acc;
                               }, {})
-                            ).map((b, i) => (
+                            )
+                            .sort((a, b) =>
+                              a.batch.localeCompare(
+                                b.batch,
+                                undefined,
+                                {
+                                  numeric: true,
+                                  sensitivity: "base"
+                                }
+                              )
+                            )
+                            .map((b, i) => (
                               <tr key={i}>
                                 <td>{b.batch}</td>
                                 <td style={{ color: "#22c55e", fontWeight: "600" }}>

@@ -263,13 +263,25 @@ export default function Batches() {
   };
 
   // ================= SEARCH =================
-  const filtered = batches.filter(b => {
+  const filtered = batches
+  .filter(b => {
     const val = search.toLowerCase();
+
     return (
       b.batch_name?.toLowerCase().includes(val) ||
       b.faculty_name?.toLowerCase().includes(val)
     );
-  });
+  })
+  .sort((a, b) =>
+    a.batch_name.localeCompare(
+      b.batch_name,
+      undefined,
+      {
+        numeric: true,
+        sensitivity: "base"
+      }
+    )
+  );
 
   const formatDate = (date) => {
     if (!date) return "";
@@ -579,7 +591,18 @@ export default function Batches() {
             >
               <option value="">Select Faculty</option>
 
-              {facultyList.map(f => (
+              {[...facultyList]
+              .sort((a, b) =>
+                a.name.localeCompare(
+                  b.name,
+                  undefined,
+                  {
+                    numeric: true,
+                    sensitivity: "base"
+                  }
+                )
+              )
+              .map(f => (
                 <option key={f.id} value={f.id}>
                   {f.name} ({f.role})
                 </option>
@@ -640,7 +663,18 @@ export default function Batches() {
                         >
                           <option value="">Select Faculty</option>
 
-                          {facultyList.map(f => (
+                          {[...facultyList]
+                          .sort((a, b) =>
+                            a.name.localeCompare(
+                              b.name,
+                              undefined,
+                              {
+                                numeric: true,
+                                sensitivity: "base"
+                              }
+                            )
+                          )
+                          .map(f => (
                             <option key={f.id} value={f.id}>
                               {f.name} ({f.role})
                             </option>
@@ -716,7 +750,18 @@ export default function Batches() {
               >
                 <option value="all">All Batches</option>
 
-                {batches.map(b => (
+                {[...batches]
+                .sort((a, b) =>
+                  a.batch_name.localeCompare(
+                    b.batch_name,
+                    undefined,
+                    {
+                      numeric: true,
+                      sensitivity: "base"
+                    }
+                  )
+                )
+                .map(b => (
                   <option key={b.id} value={b.id}>
                     {b.batch_name}
                   </option>

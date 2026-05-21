@@ -380,7 +380,11 @@ const validate = () => {
       </thead>
 
       <tbody>
-        ${students.map(s => `
+        ${students
+          .sort((a, b) =>
+            a.name.localeCompare(b.name)
+          )
+          .map(s => `
           <tr>
             <td>${s.name}</td>
             <td>${s.email}</td>
@@ -690,7 +694,16 @@ const exportStudentProfilePDF = () => {
             return acc;
           }, {})
         )
-        .sort((a, b) => a.batch.localeCompare(b.batch))
+        .sort((a, b) =>
+          a.batch.localeCompare(
+            b.batch,
+            undefined,
+            {
+              numeric: true,
+              sensitivity: "base"
+            }
+          )
+        )
         .map(b => `
           <tr>
             <td>${b.batch}</td>
@@ -1077,7 +1090,16 @@ const exportStudentProfilePDF = () => {
                               return acc;
                             }, {})
                           )
-                          .sort((a, b) => a.batch.localeCompare(b.batch))
+                          .sort((a, b) =>
+                            a.batch.localeCompare(
+                              b.batch,
+                              undefined,
+                              {
+                                numeric: true,
+                                sensitivity: "base"
+                              }
+                            )
+                          )
                           .map((b, i) => (
                             <tr key={i}>
                               <td>{b.batch}</td>

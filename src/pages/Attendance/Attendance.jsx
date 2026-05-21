@@ -292,7 +292,18 @@ export default function Attendance() {
             className={errors.batch ? "error" : ""}
           >
             <option value="">Select Batch</option>
-            {batches.map(b => (
+            {[...batches]
+            .sort((a, b) =>
+              a.batch_name.localeCompare(
+                b.batch_name,
+                undefined,
+                {
+                  numeric: true,
+                  sensitivity: "base"
+                }
+              )
+            )
+            .map(b => (
               <option key={b.id} value={b.id}>{b.batch_name}</option>
             ))}
           </select>
@@ -371,7 +382,17 @@ export default function Attendance() {
           <span>Status</span>
         </div>
 
-        {students.map((s, index) => (
+        {[...students]
+        .sort((a, b) =>
+          a.name.localeCompare(
+            b.name,
+            undefined,
+            {
+              sensitivity: "base"
+            }
+          )
+        )
+        .map((s, index) => (
           <div
             key={`${s.id}-${index}`}
             className={`student-row ${
