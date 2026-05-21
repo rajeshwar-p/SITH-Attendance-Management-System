@@ -213,18 +213,8 @@ export default function Login() {
 
   const [errors, setErrors] = useState({});
 
-  const capitalize = (v) =>
-    v.replace(/\b\w/g, c => c.toUpperCase());
-
   const handleChange = (e) => {
     let { name, value } = e.target;
-
-    // 🔥 Capitalize words
-    if (["name", "role", "courses"].includes(name)) {
-      value = value
-        .toLowerCase()
-        .replace(/\b\w/g, (c) => c.toUpperCase());
-    }
 
     // 🔥 Mobile only digits
     if (name === "mobile") {

@@ -1248,9 +1248,6 @@ export default function BatchDetails() {
                                 onChange={(e) => {
                                   let value = e.target.value;
 
-                                  // 🔥 AUTO CAPITALIZE EACH WORD
-                                  value = value.replace(/\b\w/g, c => c.toUpperCase());
-
                                   clearError("topic");
                                   setEditData({ ...editData, topic: value });
                                 }}

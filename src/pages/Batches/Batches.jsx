@@ -195,11 +195,6 @@ export default function Batches() {
   const handleChange = (e) => {
     let { name, value } = e.target;
 
-    // ✅ Capitalize every word
-    if (name === "name") {
-      value = value.replace(/\b\w/g, c => c.toUpperCase());
-    }
-
     setForm(prev => ({ ...prev, [name]: value }));
 
     // remove error on focus
