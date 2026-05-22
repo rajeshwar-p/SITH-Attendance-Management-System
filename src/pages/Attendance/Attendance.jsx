@@ -351,19 +351,25 @@ export default function Attendance() {
         </div>
 
         <div className="input-box">
-          <label>Topic</label>
-          <input
-            value={form.topic}
-            className={errors.topic ? "error" : ""}
-            onChange={(e)=>{
-              const value = e.target.value;
+        <label>Topic</label>
+        <input
+          value={form.topic}
+          className={errors.topic ? "error" : ""}
+          onChange={(e)=>{
+            const value = e.target.value;
 
-              setForm({...form, topic: formatted});
+            setForm({
+              ...form,
+              topic: value
+            });
 
-              setErrors(prev => ({...prev, topic: false}));
-            }}
-          />
-        </div>
+            setErrors(prev => ({
+              ...prev,
+              topic: false
+            }));
+          }}
+        />
+      </div>
 
       </div>
 
